@@ -1,19 +1,24 @@
 const express = require("express");
 const path = require("path");
+require("dotenv").config();
 
 const app = express();
-const PORT = 3000;
+const PORT = process.env.PORT;
 
-// serve folder public
 app.use(express.static(path.join(__dirname, "public"), {
-  maxAge: "30d",   // cache 30 hari
+  maxAge: "30d",
   etag: true
 }));
 
 app.get("/", (req, res) => {
-  res.send("CDN is running 🚀");
+  res.send("go to the moonnnnn 🚀");
 });
 
-app.listen(PORT, () => {
-  console.log(`CDN running on http://localhost:${PORT}`);
+app.use((req, res, next) => {
+  console.log(`[${new Date().toISOString()}] ${req.method} ${req.url}`);
+  next();
+});
+
+app.listen(PORT, "0.0.0.0", () => {
+  console.log(`🚀 CDN running on http://0.0.0.0:${PORT}`);
 });
