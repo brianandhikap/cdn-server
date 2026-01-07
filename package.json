@@ -1,0 +1,16 @@
+{
+  "name": "cdn-server",
+  "version": "1.0.0",
+  "description": "cdn",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "keywords": ["cdn", "static", "express"],
+  "author": "bapak ku nelayan",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "express": "^5.2.1"
+  }
+}
